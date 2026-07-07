@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "./.github/hooks/cost-guard/adapter.sh session-start",
+        "powershell": "./.github/hooks/cost-guard/adapter.ps1 session-start",
+        "timeoutSec": 10
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "bash": "./.github/hooks/cost-guard/adapter.sh pre-tool",
+        "powershell": "./.github/hooks/cost-guard/adapter.ps1 pre-tool",
+        "timeoutSec": 5
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "bash": "./.github/hooks/cost-guard/adapter.sh post-tool",
+        "powershell": "./.github/hooks/cost-guard/adapter.ps1 post-tool",
+        "timeoutSec": 5
+      }
+    ],
+    "errorOccurred": [
+      {
+        "type": "command",
+        "bash": "./.github/hooks/cost-guard/adapter.sh error",
+        "powershell": "./.github/hooks/cost-guard/adapter.ps1 error",
+        "timeoutSec": 5
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "bash": "./.github/hooks/cost-guard/adapter.sh session-end",
+        "powershell": "./.github/hooks/cost-guard/adapter.ps1 session-end",
+        "timeoutSec": 15
+      }
+    ]
+  }
+}

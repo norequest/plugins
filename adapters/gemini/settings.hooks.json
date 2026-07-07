@@ -1,0 +1,37 @@
+{
+  "_comment": "Merge this `hooks` block into your Gemini CLI settings.json (~/.gemini/settings.json or <project>/.gemini/settings.json). Requires Gemini CLI >= v0.26.0. Copy core/ + adapter.sh into .gemini/hooks/cost-guard/ first (see README).",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": ".gemini/hooks/cost-guard/adapter.sh session-start", "timeout": 10 }
+        ]
+      }
+    ],
+    "BeforeTool": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": ".gemini/hooks/cost-guard/adapter.sh pre-tool", "timeout": 10 }
+        ]
+      }
+    ],
+    "AfterTool": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": ".gemini/hooks/cost-guard/adapter.sh post-tool", "timeout": 10 }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": ".gemini/hooks/cost-guard/adapter.sh session-end", "timeout": 15 }
+        ]
+      }
+    ]
+  }
+}

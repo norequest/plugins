@@ -1,0 +1,9 @@
+# cost-guard runtime artifacts
+.DS_Store
+*.tmp
+*.tmp.*
+# local collector data
+collector/data/
+data/
+# session logs (if a user points COST_GUARD_LOG_DIR into the repo)
+*.jsonl
