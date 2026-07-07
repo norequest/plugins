@@ -129,8 +129,7 @@ identical across IDEs.
 > (Codex `plugin marketplace` ~v0.121, Copilot CLI plugins preview-era, Gemini
 > extensions+hooks ≥ v0.26.0) and were not runtime-tested on the build machine —
 > treat them as "documented and wired," and do a local smoke test with each CLI
-> before relying on it. Full details:
-> [`docs/plans/2026-07-08-multi-marketplace.md`](docs/plans/2026-07-08-multi-marketplace.md).
+> before relying on it.
 
 ## What it does
 
