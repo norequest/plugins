@@ -360,8 +360,7 @@ cost-guard/                            # repo root == the plugin / extension
 │   └── gemini/{adapter.sh, adapter.ps1, settings.hooks.json}
 ├── install/install.sh                 # Cursor individuals + Copilot cloud + native-command printer
 ├── collector/collector.py             # zero-dependency central collector
-├── tests/{run.sh, payloads/}          # 106-check verification harness
-└── docs/plans/                        # design + multi-marketplace docs
+└── tests/{run.sh, payloads/}          # 106-check verification harness
 ```
 
 ## License
