@@ -31,14 +31,19 @@ directly from this repo (see the per-IDE rows below).
 
 ## Install cost-guard: pick your IDE
 
-| IDE | Install |
-|---|---|
-| **Claude Code** | `/plugin marketplace add norequest/plugins` then `/plugin install cost-guard@norequest` |
-| **OpenAI Codex** | `codex plugin marketplace add norequest/plugins` then `codex plugin install cost-guard@norequest` |
-| **Google Gemini** | `gemini extensions link ./plugins/cost-guard/gemini` (from a repo clone) |
-| **GitHub Copilot (CLI)** | `copilot plugin install norequest/plugins:plugins/cost-guard` |
-| **Cursor** | `plugins/cost-guard/install/install.sh cursor .` (from a repo clone) |
-| **GitHub Copilot (cloud agent)** | `plugins/cost-guard/install/install.sh copilot .` then commit `.github/hooks/cost-guard.json` |
+| IDE | Install | Verified |
+|---|---|---|
+| **Claude Code** | `/plugin marketplace add norequest/plugins` then `/plugin install cost-guard@norequest` | runtime ✅ (flagship) |
+| **OpenAI Codex** | `codex plugin marketplace add norequest/plugins` then `codex plugin install cost-guard@norequest` | schema-only ⚠️ |
+| **Google Gemini** | `gemini extensions link ./plugins/cost-guard/gemini` (from a repo clone) | schema-only ⚠️ |
+| **GitHub Copilot (CLI)** | `copilot plugin install norequest/plugins:plugins/cost-guard` | schema-only ⚠️ |
+| **Cursor** | `plugins/cost-guard/install/install.sh cursor .` (from a repo clone) | runtime ✅ (CI smoke) |
+| **GitHub Copilot (cloud agent)** | `plugins/cost-guard/install/install.sh copilot .` then commit `.github/hooks/cost-guard.json` | runtime ✅ (CI smoke) |
+
+`runtime` = the install path is exercised end to end (Cursor and Copilot cloud run
+in CI on every push; Claude Code is the flagship dev target). `schema-only` = the
+wiring is validated against the CLI's current docs but has not yet been run against
+that CLI.
 
 Full per-IDE details, requirements, and caveats:
 [plugins/cost-guard/README.md](plugins/cost-guard/README.md).
