@@ -16,14 +16,21 @@ directory, `plugins/cost-guard/`, is the plugin root.
 Each supported IDE has its **own marketplace / extension entry in this one repo**,
 so you install with a single command from your own CLI. Pick your row:
 
-| IDE | Install command | Install method | Status |
+| IDE | Install command | Install method | Verified |
 |---|---|---|---|
-| **Claude Code** | `/plugin marketplace add norequest/plugins` → `/plugin install cost-guard@norequest` | native marketplace | native ✅ |
-| **OpenAI Codex** | `codex plugin marketplace add norequest/plugins` → `codex plugin install cost-guard@norequest` | native marketplace | native ✅ |
-| **Google Gemini** | `gemini extensions link ./plugins/cost-guard/gemini` (from a repo clone) | linked extension | native ✅ |
-| **GitHub Copilot (CLI)** | `copilot plugin install norequest/plugins:plugins/cost-guard` | native plugin (subdir) | native ✅ |
-| **Cursor** | `plugins/cost-guard/install/install.sh cursor .` (writes `.cursor/hooks.json`) | installer / config file | file-based ⚠️ |
-| **GitHub Copilot (cloud agent)** | `plugins/cost-guard/install/install.sh copilot .` → commit `.github/hooks/cost-guard.json` | config file | file-based ⚠️ |
+| **Claude Code** | `/plugin marketplace add norequest/plugins` → `/plugin install cost-guard@norequest` | native marketplace | runtime ✅ (flagship) |
+| **OpenAI Codex** | `codex plugin marketplace add norequest/plugins` → `codex plugin install cost-guard@norequest` | native marketplace | schema-only ⚠️ |
+| **Google Gemini** | `gemini extensions link ./plugins/cost-guard/gemini` (from a repo clone) | linked extension | schema-only ⚠️ |
+| **GitHub Copilot (CLI)** | `copilot plugin install norequest/plugins:plugins/cost-guard` | native plugin (subdir) | schema-only ⚠️ |
+| **Cursor** | `plugins/cost-guard/install/install.sh cursor .` (writes `.cursor/hooks.json`) | installer / config file | runtime ✅ (CI smoke) |
+| **GitHub Copilot (cloud agent)** | `plugins/cost-guard/install/install.sh copilot .` → commit `.github/hooks/cost-guard.json` | config file | runtime ✅ (CI smoke) |
+
+**Verified** column: `runtime` means the install path is exercised end to end
+(Cursor and Copilot cloud run in CI on every push; Claude Code is the flagship dev
+target). `schema-only` means the wiring is validated against the CLI's current
+docs but has not yet been run against that CLI. See the Verification status note
+under [How the marketplaces work](#how-the-marketplaces-work) for exactly what is
+and is not covered.
 
 **Requirements (all IDEs):** **bash + jq** on macOS/Linux (`brew install jq` /
 `apt install jq`). Every adapter ships a `.sh` and a `.ps1` sibling over one
