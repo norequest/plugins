@@ -1,9 +1,9 @@
 # cost-guard tests
 
-Run the verification harness with:
+Run the verification harness from the repo root with:
 
 ```sh
-bash tests/run.sh
+bash plugins/cost-guard/tests/run.sh
 ```
 
 It requires only `bash` + `jq` (the same hard dependencies as cost-guard). For

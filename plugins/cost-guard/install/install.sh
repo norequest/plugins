@@ -10,11 +10,11 @@
 #   * Copilot cloud agent  — reads only repo .github/hooks/*.json, so we assemble
 #                            .github/hooks/ into a target project to be committed.
 #
-# Usage:
-#   install/install.sh                      # per-IDE menu (same as help / -h)
-#   install/install.sh <ide>                # native IDEs: print the install command
-#   install/install.sh cursor  <target-dir> # file install (individuals)
-#   install/install.sh copilot <target-dir> # file install (cloud agent / repo hooks)
+# Usage (from the repo root):
+#   plugins/cost-guard/install/install.sh                      # per-IDE menu (same as help / -h)
+#   plugins/cost-guard/install/install.sh <ide>                # native IDEs: print the install command
+#   plugins/cost-guard/install/install.sh cursor  <target-dir> # file install (individuals)
+#   plugins/cost-guard/install/install.sh copilot <target-dir> # file install (cloud agent / repo hooks)
 #
 #   <ide> (native)  : claude | claude-code | codex | gemini | copilot-cli
 #   <ide> (file)    : cursor | copilot
@@ -37,10 +37,10 @@ cost-guard — install per IDE
 Four IDEs install NATIVELY (no files to copy) — run the command in that IDE / shell:
 
   Claude Code    /plugin marketplace add $SLUG
-                 /plugin install cost-guard@cost-guard
+                 /plugin install cost-guard@norequest
 
   Codex          codex plugin marketplace add $SLUG
-                 codex plugin install cost-guard@cost-guard
+                 codex plugin install cost-guard@norequest
 
   Gemini         gemini extensions install $GH_URL
 
@@ -48,14 +48,14 @@ Four IDEs install NATIVELY (no files to copy) — run the command in that IDE / 
 
 Two paths are file-based — this script installs them into a target project:
 
-  Cursor         install/install.sh cursor  <target-dir>
+  Cursor         plugins/cost-guard/install/install.sh cursor  <target-dir>
                  (file install for individuals; native path is Teams/official marketplace only)
 
-  Copilot cloud  install/install.sh copilot <target-dir>
+  Copilot cloud  plugins/cost-guard/install/install.sh copilot <target-dir>
                  (writes .github/hooks/ for the cloud agent — commit it)
 
 Reprint a native IDE's command:
-  install/install.sh claude | codex | gemini | copilot-cli
+  plugins/cost-guard/install/install.sh claude | codex | gemini | copilot-cli
 EOF
 }
 
@@ -66,7 +66,7 @@ Claude Code installs cost-guard through its plugin marketplace — no files to
 copy. Inside Claude Code, run:
 
   /plugin marketplace add $SLUG
-  /plugin install cost-guard@cost-guard
+  /plugin install cost-guard@norequest
 
 Then restart Claude Code. Requires bash + jq on PATH.
 EOF
@@ -78,7 +78,7 @@ Codex installs cost-guard through its plugin marketplace — no files to copy.
 Run:
 
   codex plugin marketplace add $SLUG
-  codex plugin install cost-guard@cost-guard
+  codex plugin install cost-guard@norequest
 
 Requires a Codex build with plugin marketplace support, plus bash + jq on PATH.
 EOF
@@ -102,7 +102,7 @@ GitHub Copilot CLI installs cost-guard as a plugin — no files to copy. Run:
 
 Requires a Copilot CLI build with plugin support, plus bash + jq on PATH.
 
-(For the Copilot CLOUD agent / repo hooks, use: install/install.sh copilot <target-dir>)
+(For the Copilot CLOUD agent / repo hooks, use: plugins/cost-guard/install/install.sh copilot <target-dir>)
 EOF
 }
 
@@ -111,7 +111,7 @@ EOF
 require_target() {
   if [ -z "$TARGET" ]; then
     echo "error: <target-dir> is required for '$IDE' (file install)" >&2
-    echo "usage: install/install.sh $IDE <target-dir>" >&2
+    echo "usage: plugins/cost-guard/install/install.sh $IDE <target-dir>" >&2
     exit 2
   fi
   if [ ! -d "$TARGET" ]; then
@@ -142,7 +142,8 @@ assemble() {
 
 # The Cursor wiring, generated INLINE with project-root-relative paths
 # (.cursor/hooks/cost-guard/adapter.sh) — NOT the repo-relative plugin form in
-# adapters/cursor/hooks.json. preToolUse runs fail-open (failClosed:false).
+# plugins/cost-guard/adapters/cursor/hooks.json. preToolUse runs fail-open
+# (failClosed:false).
 cursor_hooks_json() {
   cat <<'JSON'
 {

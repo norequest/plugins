@@ -10,7 +10,7 @@
 #
 # Only bash + jq are required (both are hard deps of cost-guard itself).
 #
-# Usage: bash tests/run.sh
+# Usage (from the repo root): bash plugins/cost-guard/tests/run.sh
 set -u
 
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)

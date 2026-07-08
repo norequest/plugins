@@ -1,9 +1,9 @@
 {
-  "name": "cost-guard",
+  "name": "norequest",
   "plugins": [
     {
       "name": "cost-guard",
-      "source": { "source": "local", "path": "./" },
+      "source": { "source": "local", "path": "./plugins/cost-guard" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_USE" },
       "category": "Coding"
     }

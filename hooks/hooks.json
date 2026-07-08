@@ -3,7 +3,7 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "\"${extensionPath}/adapters/gemini/adapter.sh\" session-start", "timeout": 10000 }
+          { "type": "command", "command": "\"${extensionPath}/plugins/cost-guard/adapters/gemini/adapter.sh\" session-start", "timeout": 10000 }
         ]
       }
     ],
@@ -11,7 +11,7 @@
       {
         "matcher": ".*",
         "hooks": [
-          { "type": "command", "command": "\"${extensionPath}/adapters/gemini/adapter.sh\" pre-tool", "timeout": 10000 }
+          { "type": "command", "command": "\"${extensionPath}/plugins/cost-guard/adapters/gemini/adapter.sh\" pre-tool", "timeout": 10000 }
         ]
       }
     ],
@@ -19,14 +19,14 @@
       {
         "matcher": ".*",
         "hooks": [
-          { "type": "command", "command": "\"${extensionPath}/adapters/gemini/adapter.sh\" post-tool", "timeout": 10000 }
+          { "type": "command", "command": "\"${extensionPath}/plugins/cost-guard/adapters/gemini/adapter.sh\" post-tool", "timeout": 10000 }
         ]
       }
     ],
     "SessionEnd": [
       {
         "hooks": [
-          { "type": "command", "command": "\"${extensionPath}/adapters/gemini/adapter.sh\" session-end", "timeout": 15000 }
+          { "type": "command", "command": "\"${extensionPath}/plugins/cost-guard/adapters/gemini/adapter.sh\" session-end", "timeout": 15000 }
         ]
       }
     ]
