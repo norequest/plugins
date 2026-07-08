@@ -408,6 +408,13 @@ cost-guard/                                # the norequest marketplace repo
 Run the 130-check harness with `plugins/cost-guard/tests/run.sh` from the repo
 root, or `tests/run.sh` from this plugin directory.
 
+An install integration smoke test lives at `tests/smoke-cursor.sh`: it installs
+cost-guard into a throwaway project and drives the Cursor hook lifecycle the way
+Cursor does (the generated command, cwd = project root, payload on stdin),
+asserting allow/deny gating, the session ledger, and the native
+`${CLAUDE_PLUGIN_ROOT}` marketplace wiring. Both suites run in CI on Ubuntu and
+macOS.
+
 ## License
 
 MIT.
