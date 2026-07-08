@@ -38,7 +38,7 @@ fi
 
 # ---- best-effort mkdir lock: released automatically on any exit ----
 LOCK_DIR=""
-# shellcheck disable=SC2329 # invoked indirectly via the EXIT trap below
+# shellcheck disable=SC2329,SC2317 # invoked indirectly via the EXIT trap below (older shellcheck reports SC2317)
 release_lock() {
   if [ -n "$LOCK_DIR" ]; then
     rm -rf "$LOCK_DIR" 2>/dev/null
