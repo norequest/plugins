@@ -2,19 +2,19 @@
   "version": 1,
   "hooks": {
     "sessionStart": [
-      { "command": "plugins/cost-guard/adapters/cursor/adapter.sh session-start", "timeout": 10 }
+      { "command": "${CLAUDE_PLUGIN_ROOT}/adapters/cursor/adapter.sh session-start", "timeout": 10 }
     ],
     "preToolUse": [
-      { "command": "plugins/cost-guard/adapters/cursor/adapter.sh pre-tool", "timeout": 5, "failClosed": false }
+      { "command": "${CLAUDE_PLUGIN_ROOT}/adapters/cursor/adapter.sh pre-tool", "timeout": 5, "failClosed": false }
     ],
     "postToolUse": [
-      { "command": "plugins/cost-guard/adapters/cursor/adapter.sh post-tool", "timeout": 5 }
+      { "command": "${CLAUDE_PLUGIN_ROOT}/adapters/cursor/adapter.sh post-tool", "timeout": 5 }
     ],
     "postToolUseFailure": [
-      { "command": "plugins/cost-guard/adapters/cursor/adapter.sh error", "timeout": 5 }
+      { "command": "${CLAUDE_PLUGIN_ROOT}/adapters/cursor/adapter.sh error", "timeout": 5 }
     ],
     "sessionEnd": [
-      { "command": "plugins/cost-guard/adapters/cursor/adapter.sh session-end", "timeout": 15 }
+      { "command": "${CLAUDE_PLUGIN_ROOT}/adapters/cursor/adapter.sh session-end", "timeout": 15 }
     ]
   }
 }

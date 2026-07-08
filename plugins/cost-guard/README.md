@@ -107,7 +107,10 @@ matching the project philosophy: a slow or broken guard *allows* the tool rather
 than bricking the session); flip it to `"failClosed": true` on the `preToolUse`
 entry for strict enforcement. When Cursor's reviewed official marketplace /
 Teams import lands, importing this repo (via the root `.cursor-plugin/`) becomes
-the native path.
+the native path. Those native plugin hooks (`adapters/cursor/hooks.json`)
+reference the adapter via `${CLAUDE_PLUGIN_ROOT}` (a plugin-root variable Cursor
+supports; Cursor runs plugin hooks with the project root as cwd), so they resolve
+wherever the plugin is installed.
 
 ### GitHub Copilot (cloud coding agent)
 
@@ -154,7 +157,7 @@ identical across IDEs.
 > **Verification status.** The manifests are **schema-verified against the
 > current IDE docs** (JSON validates; every marketplace→source and
 > manifest→hooks reference resolves), and the core + adapters are runtime-tested
-> (129-check bash suite green, plus a PowerShell parity suite). But the **native install paths on the non-Claude CLIs
+> (130-check bash suite green, plus a PowerShell parity suite). But the **native install paths on the non-Claude CLIs
 > are new/preview** (Codex `plugin marketplace` ~v0.121, Copilot CLI plugins
 > preview-era, Gemini extensions+hooks ≥ v0.26.0) and were not runtime-tested on
 > the build machine. Treat them as "documented and wired," and do a local smoke
@@ -402,7 +405,7 @@ cost-guard/                                # the norequest marketplace repo
 
 ## Tests
 
-Run the 129-check harness with `plugins/cost-guard/tests/run.sh` from the repo
+Run the 130-check harness with `plugins/cost-guard/tests/run.sh` from the repo
 root, or `tests/run.sh` from this plugin directory.
 
 ## License

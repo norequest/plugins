@@ -387,6 +387,18 @@ test_gemini_shim() {
 
 test_gemini_shim
 
+# ======================================================= manifest hygiene
+# Regression guard for the repo-root-relative hook-path bug class (it bit both
+# the copilot and cursor wirings): no adapter hooks.json may reference its
+# adapter by the double-prefixed repo path "plugins/cost-guard/adapters/...".
+# Every hook command must be plugin-root-relative or use a plugin-root variable.
+test_hook_path_hygiene() {
+  printf '\n=== manifest path hygiene ===\n'
+  bad=$(grep -rl --include=hooks.json "plugins/cost-guard/adapters" "$REPO" 2>/dev/null || true)
+  check "no hooks.json uses a repo-root-relative adapter path" "" "$bad"
+}
+test_hook_path_hygiene
+
 printf '\n---------------------------------------------\n'
 printf '%d passed, %d failed\n' "$PASS" "$FAIL"
 [ "$FAIL" -eq 0 ] || exit 1
