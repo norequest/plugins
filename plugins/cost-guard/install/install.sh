@@ -31,8 +31,8 @@ set -eu
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 REPO=$(dirname "$SCRIPT_DIR")
 
-SLUG="norequest/cost-guard"
-GH_URL="https://github.com/norequest/cost-guard"
+SLUG="norequest/plugins"
+GH_URL="https://github.com/norequest/plugins"
 
 # --------------------------------------------------------------------- menu ----
 menu() {

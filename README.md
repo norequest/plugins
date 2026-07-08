@@ -1,6 +1,6 @@
 # norequest plugins
 
-[![ci](https://github.com/norequest/cost-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/norequest/cost-guard/actions/workflows/ci.yml)
+[![ci](https://github.com/norequest/plugins/actions/workflows/ci.yml/badge.svg)](https://github.com/norequest/plugins/actions/workflows/ci.yml)
 
 A plugin marketplace for AI coding agent CLIs: Claude Code, OpenAI Codex,
 Google Gemini, GitHub Copilot, and Cursor. One repo, one marketplace, and each
@@ -11,13 +11,13 @@ plugin installs with a single command from your own CLI.
 **Claude Code**
 
 ```
-/plugin marketplace add norequest/cost-guard
+/plugin marketplace add norequest/plugins
 ```
 
 **OpenAI Codex**
 
 ```
-codex plugin marketplace add norequest/cost-guard
+codex plugin marketplace add norequest/plugins
 ```
 
 Gemini and Copilot CLI have no marketplace concept; they install a plugin
@@ -33,10 +33,10 @@ directly from this repo (see the per-IDE rows below).
 
 | IDE | Install |
 |---|---|
-| **Claude Code** | `/plugin marketplace add norequest/cost-guard` then `/plugin install cost-guard@norequest` |
-| **OpenAI Codex** | `codex plugin marketplace add norequest/cost-guard` then `codex plugin install cost-guard@norequest` |
-| **Google Gemini** | `gemini extensions install https://github.com/norequest/cost-guard` |
-| **GitHub Copilot (CLI)** | `copilot plugin install norequest/cost-guard` |
+| **Claude Code** | `/plugin marketplace add norequest/plugins` then `/plugin install cost-guard@norequest` |
+| **OpenAI Codex** | `codex plugin marketplace add norequest/plugins` then `codex plugin install cost-guard@norequest` |
+| **Google Gemini** | `gemini extensions install https://github.com/norequest/plugins` |
+| **GitHub Copilot (CLI)** | `copilot plugin install norequest/plugins` |
 | **Cursor** | `plugins/cost-guard/install/install.sh cursor .` (from a repo clone) |
 | **GitHub Copilot (cloud agent)** | `plugins/cost-guard/install/install.sh copilot .` then commit `.github/hooks/cost-guard.json` |
 

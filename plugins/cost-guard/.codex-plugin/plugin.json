@@ -6,7 +6,7 @@
   "author": {
     "name": "Prixio"
   },
-  "homepage": "https://github.com/norequest/cost-guard",
+  "homepage": "https://github.com/norequest/plugins",
   "license": "MIT",
   "interface": {
     "displayName": "cost-guard",

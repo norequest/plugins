@@ -18,10 +18,10 @@ so you install with a single command from your own CLI. Pick your row:
 
 | IDE | Install command | Install method | Status |
 |---|---|---|---|
-| **Claude Code** | `/plugin marketplace add norequest/cost-guard` → `/plugin install cost-guard@norequest` | native marketplace | native ✅ |
-| **OpenAI Codex** | `codex plugin marketplace add norequest/cost-guard` → `codex plugin install cost-guard@norequest` | native marketplace | native ✅ |
-| **Google Gemini** | `gemini extensions install https://github.com/norequest/cost-guard` | native extension | native ✅ |
-| **GitHub Copilot (CLI)** | `copilot plugin install norequest/cost-guard` | native plugin | native ✅ |
+| **Claude Code** | `/plugin marketplace add norequest/plugins` → `/plugin install cost-guard@norequest` | native marketplace | native ✅ |
+| **OpenAI Codex** | `codex plugin marketplace add norequest/plugins` → `codex plugin install cost-guard@norequest` | native marketplace | native ✅ |
+| **Google Gemini** | `gemini extensions install https://github.com/norequest/plugins` | native extension | native ✅ |
+| **GitHub Copilot (CLI)** | `copilot plugin install norequest/plugins` | native plugin | native ✅ |
 | **Cursor** | `plugins/cost-guard/install/install.sh cursor .` (writes `.cursor/hooks.json`) | installer / config file | file-based ⚠️ |
 | **GitHub Copilot (cloud agent)** | `plugins/cost-guard/install/install.sh copilot .` → commit `.github/hooks/cost-guard.json` | config file | file-based ⚠️ |
 
@@ -37,7 +37,7 @@ file-based installs ship both engines.
 ### Claude Code
 
 ```
-/plugin marketplace add norequest/cost-guard      # or a local clone: /plugin marketplace add ./cost-guard
+/plugin marketplace add norequest/plugins      # or a local clone: /plugin marketplace add ./plugins
 /plugin install cost-guard@norequest              # plugin@marketplace
 ```
 
@@ -50,7 +50,7 @@ marketplace manifest at the repo root lists the plugin source as
 ### OpenAI Codex
 
 ```
-codex plugin marketplace add norequest/cost-guard
+codex plugin marketplace add norequest/plugins
 codex plugin install cost-guard@norequest
 ```
 
@@ -64,7 +64,7 @@ the plugin's `.codex-plugin/plugin.json` points `hooks` at
 ### Google Gemini
 
 ```
-gemini extensions install https://github.com/norequest/cost-guard
+gemini extensions install https://github.com/norequest/plugins
 ```
 
 Requires **Gemini CLI ≥ v0.26.0** (hooks GA). Gemini has no marketplace
@@ -77,7 +77,7 @@ is defined by the root `gemini-extension.json`; Gemini auto-loads the root
 ### GitHub Copilot (CLI)
 
 ```
-copilot plugin install norequest/cost-guard
+copilot plugin install norequest/plugins
 ```
 
 Requires a recent Copilot CLI with plugin support. Copilot also has no

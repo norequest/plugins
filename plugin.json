@@ -5,8 +5,8 @@
   "author": {
     "name": "Prixio"
   },
-  "homepage": "https://github.com/norequest/cost-guard",
-  "repository": "https://github.com/norequest/cost-guard",
+  "homepage": "https://github.com/norequest/plugins",
+  "repository": "https://github.com/norequest/plugins",
   "license": "MIT",
   "keywords": ["cost", "budget", "guard", "runaway", "hooks", "finops"],
   "category": "productivity",
